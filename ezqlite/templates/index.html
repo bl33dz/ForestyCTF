@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title>Songs DB</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <style>
+    .center {
+      text-align: center;
+    }
+    .img {
+      margin: 10px;
+      margin-bottom: 15px;
+    }
+    table {
+      table-layout: fixed;
+    }
+    tr, td, th {
+      border: 0px;
+      border-bottom: 2px solid #079DB0;
+    }
+    .title {
+      width: 350px;
+    }
+    .artist {
+      width: 300px;
+    }
+    .rank {
+      width: 30px;
+    }
+    :root {
+      --accent: #079DB0;
+    }
+  </style>
+</head>
+<body>
+  <div class=center>
+    <h1>Songs DB</h1>
+    <img class=img src="/static/song.png" width=300 heigth=317>
+    <form method=post>
+      <input type=text name=song placeholder="Input song title" required></input>
+      <input class=color type=submit value="Search">
+    </form>
+    {% if data is not none %}
+    <p>You searched for {{ request.form.get('song') }}</p>
+    <table class=border>
+      <tr>
+        <th class=title>Title</th>
+        <th class=artist>Artist</th>
+        <th class=rank>Rank</th>
+      </tr>
+      {% for song in data %}
+      <tr>
+        <td>{{ song[1] }}</td>
+        <td>{{ song[2] }}</td>
+        <td>#{{ song[0] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+  </div>
+</body>
+</html>

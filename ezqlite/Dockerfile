@@ -1,0 +1,19 @@
+FROM python:3.9-alpine
+
+RUN pip install flask gunicorn --no-cache-dir
+RUN addgroup -S app
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --home "/app" \
+    --ingroup "app" \
+    --uid "1337" app
+
+WORKDIR /app
+COPY app.py songs.db ./
+COPY static static
+COPY templates templates
+
+EXPOSE 8000
+
+CMD ["flask", "run", "-h", "0.0.0.0", "-p", "8000"]
