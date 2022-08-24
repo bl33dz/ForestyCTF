@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+  db:
+    image: mysql:8.0
+    volumes:
+      - ./conf/custom.cnf:/etc/mysql/conf.d/custom.cnf
+      - ./db.sql:/docker-entrypoint-initdb.d/1-db.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: justdummypass1337
