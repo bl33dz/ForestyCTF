@@ -1,0 +1,1 @@
+ForestyCTF{now_u_know_mako_ssti_3dffcd}
