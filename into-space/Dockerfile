@@ -27,7 +27,7 @@ RUN apk add --no-cache \
 RUN ln -s /usr/bin/php81 /usr/bin/php
 
 # Configure nginx
-COPY config/nginx.conf /etc/nginx/nginx.conf
+COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
 COPY conf/fpm-pool.conf /etc/php81/php-fpm.d/www.conf
@@ -40,10 +40,13 @@ COPY flag.txt /flag.txt
 
 COPY src/ /var/www/html/
 
+RUN addgroup nobody ping
+
 RUN chown -R nobody.nobody /run /var/lib/nginx /var/log/nginx
 
 RUN mkdir /var/www/html/space && \
-    chmod -R 777 /var/www/htm/space \ &&
+    chmod -R 777 /var/www/html/space && \
+    mv /var/www/html/space.gif /var/www/html/space/space.gif && \
     mv /flag.txt /flag-$(cat /proc/sys/kernel/random/uuid).txt
 
 USER nobody

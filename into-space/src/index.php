@@ -14,8 +14,9 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-function upload_image($file) {
-  $fname = basename($file["name"]);
+function upload_image($fp) {
+  // echo var_dump($fp);
+  $fname = basename($fp["name"]);
   $type = strtolower(pathinfo($fname, PATHINFO_EXTENSION));
   $name = hash("md5", $fname.time()) . "." . $type;
   $path = DIR . $name;
@@ -28,13 +29,13 @@ function upload_image($file) {
     goto end;
   }
 
-  if($file["size"] > MAX_SIZE) {
+  if($fp["size"] > MAX_SIZE) {
     $status = 0;
     $message = "File is too large.";
     goto end;
   }
 
-  if(getimagesize($file["tmp_name"] == false)) {
+  if(getimagesize($fp["tmp_name"]) == false) {
     $status = 0;
     $message = "Not an image file.";
   }
@@ -44,7 +45,7 @@ function upload_image($file) {
     return "ERROR: " . $message;
   } else {
     $x = insert($name);
-    if (move_uploaded_file($file["tmp_name"], $path) && $x === true) {
+    if (move_uploaded_file($fp["tmp_name"], $path) && $x === true) {
       return "File ". $name ." uploaded.";
     } else {
       return "If this happen, report to problem setter.".$x;
@@ -147,7 +148,9 @@ function view_image($id) {
       <input type="submit" value="Upload Image" name="submit">
       <p><?php
       if(isset($_POST['submit'])) {
-        echo upload_image($_FILES["upload"]);
+	//echo var_dump($_FILES["upload"]);
+	$fp = $_FILES["upload"];      
+	echo upload_image($fp);
       }
     ?></p>
     </form>

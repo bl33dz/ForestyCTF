@@ -27,7 +27,7 @@ CREATE TABLE `images` (
   `filename` varchar(40) NOT NULL,
   `upload_date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'edffe344f828b71febd8a3ca220c8ea7.jpg','2022-08-23'),(2,'36fcd6cecc1441e8f859a4bc44f9f97d.png','2022-08-23');
+/*INSERT INTO `images` VALUES (1,'edffe344f828b71febd8a3ca220c8ea7.jpg','2022-08-23'),(2,'36fcd6cecc1441e8f859a4bc44f9f97d.png','2022-08-23');*/
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
