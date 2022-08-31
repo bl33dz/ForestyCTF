@@ -26,9 +26,10 @@ def greet(update: Update, context: CallbackContext) -> None:
     name = update.message.chat.first_name
     try:
         html = Template("Hello <b>" + name + "</b>!").render()
+        update.message.reply_html(html)
     except:
         html = "Hey, be careful with your payload."
-    update.message.reply_html(html)
+        update.message.reply_html(html)
 
 
 def main() -> None:

@@ -8,6 +8,7 @@ RUN adduser \
     --home "/app" \
     --ingroup "app" \
     --uid "1337" app
+RUN chown -R root:root /app
 
 WORKDIR /app
 COPY bot.py ./bot.py
