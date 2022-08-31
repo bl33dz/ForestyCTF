@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-# pylint: disable=C0116,W0613
-# This program is dedicated to the public domain under the CC0 license.
+
+# <u_dont_need_read_this_lol>
 
 import logging
 
@@ -27,9 +27,9 @@ def greet(update: Update, context: CallbackContext) -> None:
     try:
         html = Template("Hello <b>" + name + "</b>!").render()
         update.message.reply_html(html)
-    except:
-        html = "Hey, be careful with your payload."
-        update.message.reply_html(html)
+    except Exception as e:
+        txt = str(e)
+        update.message.reply_text(txt)
 
 
 def main() -> None:
