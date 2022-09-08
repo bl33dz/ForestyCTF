@@ -13,6 +13,4 @@ RUN chmod 0644 /app/flag.txt && \
 
 EXPOSE 3000
 
-USER nobody
-
 CMD socat TCP-LISTEN:3000,reuseaddr,fork EXEC:"python app.py",su=nobody,stderr
