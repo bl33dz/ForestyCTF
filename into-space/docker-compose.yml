@@ -2,18 +2,18 @@ version: "3.5"
 
 services:
   app:
-    build: .
+    build: ./web/
     ports:
-      - "8080:8080"
+      - "9002:8080"
     volumes:
       - space:/var/www/html/space
+    links:
+      - "db:db"
   db:
-    image: mysql:8.0
+    build: ./db/
     volumes:
       - mysql:/var/lib/mysql
       - space:/var/www/html/space
-      - ./conf/custom.cnf:/etc/mysql/conf.d/custom.cnf
-      - ./db.sql:/docker-entrypoint-initdb.d/1-db.sql
     environment:
       MYSQL_ROOT_PASSWORD: justdummypass1337
       MYSQL_DATABASE: into_space

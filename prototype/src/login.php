@@ -15,7 +15,7 @@ if(isset($_POST['username'])) {
 ?>
 <html>
 <head>
-  <title>Songs DB</title>
+  <title>Prototype</title>
   <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
   <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
   <style>
