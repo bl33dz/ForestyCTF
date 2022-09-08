@@ -1,0 +1,1 @@
+ForestyCTF{ggwp_shell_script_master_bcff80}
