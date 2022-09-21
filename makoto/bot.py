@@ -34,7 +34,7 @@ def greet(update: Update, context: CallbackContext) -> None:
 
 def main() -> None:
     # Create the Updater and pass it your bot's token.
-    updater = Updater("***REMOVED***")
+    updater = Updater("[BOT_TOKEN]")
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
