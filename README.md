@@ -14,3 +14,13 @@ Created for educational purposes. Now, my domain has expired and I no longer mai
   - calcv1
   - calcv2
   - makoto
+- Binary Exploitation
+  - overflow-me v1
+  - overflow-me v2
+  - overflow-me v3
+- Reversing
+  - crackme
+- Forensic
+  - analyze me!
+- Cryptography
+  - xor
